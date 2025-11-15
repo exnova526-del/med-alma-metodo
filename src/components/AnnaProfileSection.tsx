@@ -1,6 +1,14 @@
+import { useRef } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useParallax } from "@/hooks/useParallax";
 import annaProfile from "@/assets/anna-profile-latest.jpg";
 const AnnaProfileSection = () => {
+  const imageRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  
+  const imageParallax = useParallax(imageRef, { speed: 0.2, direction: 'up' });
+  const contentParallax = useParallax(contentRef, { speed: 0.15, direction: 'down' });
+  
   const {
     ref: sectionRef,
     isVisible: sectionVisible
@@ -14,14 +22,22 @@ const AnnaProfileSection = () => {
           <div className="md:col-span-2">
             <div className="relative max-w-sm mx-auto md:mx-0 sticky top-24">
               <div className="absolute -inset-8 bg-gradient-to-br from-burgundy/20 to-accent/20 blur-3xl opacity-60" />
-              <div className={`relative aspect-[3/4] overflow-hidden rounded-2xl transition-all duration-700 ${sectionVisible ? 'animate-scale-in' : 'opacity-0'}`}>
+              <div 
+                ref={imageRef}
+                style={imageParallax.style}
+                className={`relative aspect-[3/4] overflow-hidden rounded-2xl transition-all duration-700 ${sectionVisible ? 'animate-scale-in' : 'opacity-0'}`}
+              >
                 <img src={annaProfile} alt="Dra. Anna L. Fontes Medeiros" className="w-full h-full object-cover object-center rounded-2xl" />
               </div>
             </div>
           </div>
 
           {/* Content Column */}
-          <div className="md:col-span-3">
+          <div 
+            ref={contentRef}
+            style={contentParallax.style}
+            className="md:col-span-3"
+          >
             <h2 className="font-playfair text-4xl sm:text-5xl font-bold text-primary mb-6">
               Sobre Anna Fontes
             </h2>
