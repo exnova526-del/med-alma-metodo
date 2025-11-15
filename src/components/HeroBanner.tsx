@@ -1,8 +1,17 @@
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useParallax } from "@/hooks/useParallax";
 import heroBanner from "@/assets/hero-doctor.jpg";
 const HeroBanner = () => {
   const [scrollY, setScrollY] = useState(0);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
+
+  const titleParallax = useParallax(titleRef, { speed: 0.3, direction: 'down', opacity: true });
+  const subtitleParallax = useParallax(subtitleRef, { speed: 0.4, direction: 'down' });
+  const buttonParallax = useParallax(buttonRef, { speed: 0.5, direction: 'down' });
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);

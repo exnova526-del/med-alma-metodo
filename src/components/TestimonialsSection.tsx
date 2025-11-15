@@ -1,5 +1,7 @@
+import { useRef } from "react";
 import { Star } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useParallax } from "@/hooks/useParallax";
 
 const testimonials = [
   {
@@ -33,6 +35,9 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const cardsParallax = useParallax(cardsRef, { speed: 0.2, direction: 'up' });
+  
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollReveal({ threshold: 0.1 });
   
   return (
@@ -48,7 +53,11 @@ const TestimonialsSection = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-8">
+          <div 
+            ref={cardsRef}
+            style={cardsParallax.style}
+            className="grid sm:grid-cols-2 gap-8"
+          >
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index}

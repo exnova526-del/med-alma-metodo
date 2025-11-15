@@ -1,5 +1,7 @@
+import { useRef } from "react";
 import { Award, Heart, TrendingUp, Users, BookOpen } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useParallax } from "@/hooks/useParallax";
 
 const values = [
   {
@@ -30,6 +32,12 @@ const values = [
 ];
 
 const AboutSection = () => {
+  const valuesContainerRef = useRef<HTMLDivElement>(null);
+  const verseContainerRef = useRef<HTMLDivElement>(null);
+  
+  const valuesParallax = useParallax(valuesContainerRef, { speed: 0.25, direction: 'up' });
+  const verseParallax = useParallax(verseContainerRef, { speed: 0.3, direction: 'right' });
+  
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollReveal({ threshold: 0.1 });
   const { ref: valuesRef, isVisible: valuesVisible } = useScrollReveal({ threshold: 0.1 });
   const { ref: verseRef, isVisible: verseVisible } = useScrollReveal({ threshold: 0.2 });
@@ -52,7 +60,11 @@ const AboutSection = () => {
           <h3 className={`font-playfair text-3xl sm:text-4xl font-bold text-primary text-center mb-12 transition-all duration-1000 ${valuesVisible ? 'animate-fade-down opacity-100' : 'opacity-0'}`}>
             Nossos Valores
           </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
+          <div 
+            ref={valuesContainerRef}
+            style={valuesParallax.style}
+            className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto"
+          >
             {values.map((value, index) => (
               <div 
                 key={value.title}
@@ -76,13 +88,19 @@ const AboutSection = () => {
         </div>
 
         {/* Bible verse */}
-        <div ref={verseRef} className={`max-w-3xl mx-auto text-center bg-burgundy/5 border-l-4 border-burgundy p-8 rounded-r-lg transition-all duration-1000 ${verseVisible ? 'animate-slide-in-right opacity-100' : 'opacity-0'}`}>
+        <div 
+          ref={verseRef} 
+          style={verseContainerRef.current ? verseParallax.style : undefined}
+          className={`max-w-3xl mx-auto text-center bg-burgundy/5 border-l-4 border-burgundy p-8 rounded-r-lg transition-all duration-1000 ${verseVisible ? 'animate-slide-in-right opacity-100' : 'opacity-0'}`}
+        >
+          <div ref={verseContainerRef}>
           <p className="font-crimson text-lg sm:text-xl italic text-foreground/80 leading-relaxed mb-4">
             "Mas os que esperam no Senhor renovarão as suas forças; subirão com asas como águias; correrão e não se cansarão; caminharão e não se fatigarão."
           </p>
           <p className="font-crimson text-sm sm:text-base font-semibold text-burgundy">
             Isaías 40:31
           </p>
+          </div>
         </div>
       </div>
     </section>

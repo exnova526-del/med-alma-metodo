@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
+import { useParallax } from "@/hooks/useParallax";
 import {
   Carousel,
   CarouselContent,
@@ -33,6 +34,9 @@ const galleryImages = [
 ];
 
 const GalleryCarouselSection = () => {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const carouselParallax = useParallax(carouselRef, { speed: 0.15, direction: 'up' });
+  
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
@@ -58,7 +62,11 @@ const GalleryCarouselSection = () => {
           </p>
         </div>
 
-        <div className="relative max-w-5xl mx-auto">
+        <div 
+          ref={carouselRef}
+          style={carouselParallax.style}
+          className="relative max-w-5xl mx-auto"
+        >
           <Carousel
             setApi={setApi}
             opts={{
