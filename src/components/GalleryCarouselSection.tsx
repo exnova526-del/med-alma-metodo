@@ -49,8 +49,8 @@ const GalleryCarouselSection = () => {
             <CarouselContent>
               {galleryImages.map((image, index) => <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-2">
-                    <div className="relative aspect-[9/16] overflow-hidden rounded-lg shadow-lg bg-muted/20">
-                      <img src={image} alt={`Galeria ${index + 1}`} className="w-full h-full object-contain transition-transform duration-500 hover:scale-105" />
+                    <div className="relative aspect-[9/16] overflow-hidden rounded-2xl shadow-lg">
+                      <img src={image} alt={`Galeria ${index + 1}`} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                     </div>
                   </div>
                 </CarouselItem>)}
