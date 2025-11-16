@@ -75,7 +75,7 @@ const GalleryCarouselSection = () => {
             }}
             plugins={[
               Autoplay({
-                delay: 3000,
+                delay: 2000,
                 stopOnInteraction: false,
                 stopOnMouseEnter: false,
               }),
