@@ -1,4 +1,4 @@
-import courseBase from "@/assets/course-base.jpg";
+import courseMed from "@/assets/course-med.png";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
@@ -37,7 +37,7 @@ const CoursesSection = () => {
               {/* Image Side */}
               <div className="relative h-[400px] md:h-auto">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 z-10" />
-                <img src={courseBase} alt="Método de Excelência — Base Médica" className="w-full h-full object-cover" />
+                <img src={courseMed} alt="Método de Excelência e Desempenho" className="w-full h-full object-cover" />
               </div>
 
               {/* Content Side */}
