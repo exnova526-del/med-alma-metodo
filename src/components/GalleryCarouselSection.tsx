@@ -32,9 +32,7 @@ const GalleryCarouselSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl text-foreground mb-4 font-bold font-serif text-[#5a2224] md:text-5xl">SUA JORNADA COM O MÉTODO</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Momentos e experiências que transformam
-          </p>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Aqui você encontra os materiais iniciais, introduções e orientações essenciais para começar com segurança, clareza e confiança sua formação médica avançada.</p>
         </div>
 
         <div ref={carouselRef} style={carouselParallax.style} className="relative max-w-5xl mx-auto">
