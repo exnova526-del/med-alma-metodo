@@ -7,11 +7,19 @@ const HeroBanner = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
-
-  const titleParallax = useParallax(titleRef, { speed: 0.3, direction: 'down', opacity: true });
-  const subtitleParallax = useParallax(subtitleRef, { speed: 0.4, direction: 'down' });
-  const buttonParallax = useParallax(buttonRef, { speed: 0.5, direction: 'down' });
-
+  const titleParallax = useParallax(titleRef, {
+    speed: 0.3,
+    direction: 'down',
+    opacity: true
+  });
+  const subtitleParallax = useParallax(subtitleRef, {
+    speed: 0.4,
+    direction: 'down'
+  });
+  const buttonParallax = useParallax(buttonRef, {
+    speed: 0.5,
+    direction: 'down'
+  });
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -43,15 +51,12 @@ const HeroBanner = () => {
             FONTES
           </h1>
           
-          <p className="font-playfair text-sm sm:text-base text-offWhite/90 mb-12 tracking-[0.3em] animate-fade-up opacity-0 [animation-delay:600ms]">RESIDENTE DE CIRURGIA GERAL </p>
+          <p className="font-playfair text-sm sm:text-base text-offWhite/90 mb-12 tracking-[0.3em] animate-fade-up opacity-0 [animation-delay:600ms]">MEDICINA PELA UFMG</p>
           
           <div className="w-24 h-[2px] bg-accent mx-auto mb-12 animate-scale-in opacity-0 [animation-delay:800ms]" />
           
           <div className="animate-fade-up opacity-0 [animation-delay:1000ms]">
-            <Button 
-              onClick={scrollToCourses} 
-              className="font-playfair tracking-[0.3em] text-offWhite transition-all text-xl shadow-[0_4px_12px_rgba(0,0,0,0.3)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.4)] hover:translate-y-[-2px] bg-gradient-to-r from-burgundy via-primary to-burgundy bg-[length:200%_100%] animate-gradient-shift hover:from-primary hover:via-burgundy hover:to-primary"
-            >
+            <Button onClick={scrollToCourses} className="font-playfair tracking-[0.3em] text-offWhite transition-all text-xl shadow-[0_4px_12px_rgba(0,0,0,0.3)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.4)] hover:translate-y-[-2px] bg-gradient-to-r from-burgundy via-primary to-burgundy bg-[length:200%_100%] animate-gradient-shift hover:from-primary hover:via-burgundy hover:to-primary">
               DESCUBRA O MÉTODO
             </Button>
           </div>
