@@ -60,10 +60,7 @@ const AnnaProfileSection = () => {
                   </li>
                   <li className="flex items-start">
                     <span className="text-burgundy mr-2">•</span>
-                    <span>Observership
-Observership
-
-                  </span>
+                    <span> Observership em Harvard e iniciação científica na USP</span>
                   </li>
                   <li className="flex items-start">
                     
