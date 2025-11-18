@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 import { useParallax } from "@/hooks/useParallax";
-import heroBanner from "@/assets/hero-doctor.jpg";
+import heroBanner from "@/assets/anna-hero.jpg";
 const HeroBanner = () => {
   const [scrollY, setScrollY] = useState(0);
   const titleRef = useRef<HTMLHeadingElement>(null);
