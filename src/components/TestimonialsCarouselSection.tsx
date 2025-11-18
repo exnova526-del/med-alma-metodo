@@ -36,7 +36,7 @@ const TestimonialsCarouselSection = () => {
             </p>
           </div>
 
-          <div ref={carouselRef} style={carouselParallax.style}>
+          <div ref={carouselRef} style={carouselParallax.style} className="rounded-full">
             <Carousel setApi={setApi} plugins={[Autoplay({
             delay: 4000
           })]} opts={{
@@ -44,7 +44,7 @@ const TestimonialsCarouselSection = () => {
             align: "center"
           }} className="w-full">
               <CarouselContent className="-ml-2 md:-ml-4">
-                {testimonialImages.map((image, index) => <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                {testimonialImages.map((image, index) => <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 py-0 px-0 mx-0">
                     <div className="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 aspect-[9/16]">
                       <img src={image} alt={`Depoimento de aluno ${index + 1}`} className="w-full h-full object-cover" />
                     </div>
