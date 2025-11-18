@@ -9,23 +9,19 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import CTASection from "@/components/CTASection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Header />
       <HeroBanner />
       <AnnaProfileSection />
       <AboutSection />
       <CoursesSection />
       <GalleryCarouselSection />
-      <TestimonialsCarouselSection />
+      <TestimonialsCarouselSection className="bg-slate-50" />
       <TestimonialsSection />
       <CTASection />
       <ContactSection />
       <FooterSection />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
