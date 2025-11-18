@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useParallax } from "@/hooks/useParallax";
-import annaProfile from "@/assets/anna-profile-updated.jpg";
+import annaProfile from "@/assets/anna-profile-latest.jpg";
 const AnnaProfileSection = () => {
   const imageRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
