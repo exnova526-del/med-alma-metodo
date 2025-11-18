@@ -1,6 +1,8 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, Sparkles, Check } from "lucide-react";
+import annaProfile from "@/assets/anna-profile-latest.jpg";
 
 const MentorshipSection = () => {
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollReveal({
@@ -9,208 +11,104 @@ const MentorshipSection = () => {
   });
 
   return (
-    <section ref={sectionRef} className="py-20 sm:py-32 bg-background">
-      <div className="container px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div
-            className={`text-center mb-12 transition-all duration-1000 ${
-              sectionVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
-          >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              MENTORIA INDIVIDUAL COM ANNA FONTES
-            </h2>
-            <p className="text-xl text-muted-foreground italic">
-              Excelência que transforma sua jornada médica de dentro para fora.
-            </p>
-          </div>
+    <section ref={sectionRef} className="py-20 sm:py-32 bg-gradient-to-b from-background to-muted/20">
+      <div className="container px-4 sm:px-6 lg:px-8 max-w-6xl">
+        {/* Section Header */}
+        <div className={`text-center mb-12 transition-all duration-1000 ${sectionVisible ? 'animate-fade-down opacity-100' : 'opacity-0'}`}>
+          <h2 className="font-playfair text-4xl sm:text-5xl md:text-6xl font-bold text-primary mb-6">
+            Mentoria Individual com Anna Fontes
+          </h2>
+          <p className="font-crimson text-xl text-foreground/80 max-w-3xl mx-auto">
+            Excelência que transforma sua jornada médica de dentro para fora.
+          </p>
+        </div>
 
-          {/* Introduction */}
-          <div
-            className={`mb-12 transition-all duration-1000 delay-200 ${
-              sectionVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
-          >
-            <p className="text-lg text-foreground/90 leading-relaxed mb-6">
-              Estudar medicina é mais do que acumular conhecimento — é construir propósito, maturidade e direção.
-              A mentoria individual com Anna Fontes foi criada para o estudante que deseja unir ciência, organização, constância e espiritualidade numa jornada de alta performance com profundidade e sentido.
-            </p>
-            <p className="text-lg text-foreground/90 leading-relaxed">
-              Inspirada no arquétipo do Sábio, Anna orienta com autoridade serena e humanidade, oferecendo clareza, método e propósito enquanto caminha ao seu lado.
-            </p>
-          </div>
+        {/* Featured Mentorship Card */}
+        <div className={`transition-all duration-1000 ${sectionVisible ? 'animate-scale-in opacity-100' : 'opacity-0'}`}>
+          <div className="bg-card rounded-3xl shadow-2xl overflow-hidden border border-border/50 relative">
+            {/* Badge de Destaque */}
+            <div className="absolute top-6 right-6 z-20">
+              <Badge className="bg-primary text-primary-foreground px-4 py-2 text-sm font-playfair font-semibold shadow-lg flex items-center gap-2 animate-pulse">
+                <Sparkles className="h-4 w-4" />
+                Vagas Limitadas
+              </Badge>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-0">
+              {/* Image Side */}
+              <div className="relative h-[400px] md:h-auto">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 z-10" />
+                <img src={annaProfile} alt="Anna Fontes Mentoria" className="w-full h-full object-cover" />
+              </div>
 
-          {/* O que você vai receber */}
-          <div
-            className={`mb-12 transition-all duration-1000 delay-300 ${
-              sectionVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
-          >
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 text-center">
-              O QUE VOCÊ VAI RECEBER
-            </h3>
-            <div className="space-y-6">
-              {[
-                {
-                  title: "4 encontros individuais ao longo do ano",
-                  description: "Acompanhamento profundo e adaptado à sua rotina, desafios e metas."
-                },
-                {
-                  title: "Direcionamento personalizado",
-                  description: "Plano de estudo baseado em evidências, rotina estratégica e método claro para evoluir com constância."
-                },
-                {
-                  title: "Acompanhamento humano + técnico",
-                  description: "Integração entre desempenho científico, gestão emocional e clareza espiritual — o equilíbrio que sustenta uma carreira sólida."
-                },
-                {
-                  title: "Kit exclusivo MED",
-                  description: "Itens refinados e minimalistas, alinhados à estética clássica contemporânea da marca: sobriedade, elegância e propósito."
-                }
-              ].map((item, index) => (
-                <div key={index} className="flex gap-4 items-start">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mt-1">
-                    <Check className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">{item.title}</h4>
-                    <p className="text-foreground/80">{item.description}</p>
-                  </div>
+              {/* Content Side */}
+              <div className="p-8 sm:p-12 flex flex-col justify-center">
+                <div className="mb-8">
+                  <p className="font-crimson text-lg text-foreground/90 leading-relaxed mb-6">
+                    Estudar medicina é mais do que acumular conhecimento — é construir propósito, maturidade e direção. 
+                    A mentoria individual foi criada para o estudante que deseja unir ciência, organização, constância e espiritualidade 
+                    numa jornada de alta performance com profundidade e sentido.
+                  </p>
+                  <p className="font-crimson text-lg text-foreground/90 leading-relaxed">
+                    Inspirada no arquétipo do Sábio, Anna orienta com autoridade serena e humanidade, oferecendo clareza, método e propósito enquanto caminha ao seu lado.
+                  </p>
                 </div>
-              ))}
+
+                {/* O que você vai receber */}
+                <div className="mb-8 space-y-4">
+                  {[
+                    "4 encontros individuais ao longo do ano",
+                    "Direcionamento personalizado",
+                    "Acompanhamento humano + técnico",
+                    "Kit exclusivo MED"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Check className="w-3 h-3 text-primary" />
+                      </div>
+                      <span className="font-crimson text-foreground/90">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bonus Badge */}
+                <div className="mb-8 p-4 bg-primary/5 rounded-lg border border-primary/10">
+                  <p className="font-playfair font-semibold text-primary mb-2">
+                    🎁 Bônus para os 5 primeiros inscritos
+                  </p>
+                  <p className="font-crimson text-sm text-foreground/80">
+                    Curso Completo "Método de Excelência e Desempenho (MED)"
+                  </p>
+                </div>
+
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-baseline gap-3">
+                    <span className="font-crimson text-muted-foreground text-lg font-normal">Investimento:</span>
+                    <span className="font-playfair font-bold text-primary text-3xl">R$ 1.297</span>
+                  </div>
+                  <p className="font-crimson text-sm text-muted-foreground">
+                    Possibilidade de parcelamento diretamente pela plataforma
+                  </p>
+                </div>
+
+                <Button 
+                  size="lg" 
+                  className="w-full sm:w-auto text-lg px-10 py-6 bg-primary hover:bg-primary/90 text-primary-foreground font-playfair font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  onClick={() => window.open('#', '_blank')}
+                >
+                  Garantir Minha Vaga na Mentoria
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* Bônus */}
-          <div
-            className={`mb-12 p-8 bg-primary/5 rounded-lg border border-primary/10 transition-all duration-1000 delay-400 ${
-              sectionVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
-          >
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
-              🎁 BÔNUS PARA OS 5 PRIMEIROS INSCRITOS
-            </h3>
-            <p className="text-xl font-semibold text-foreground mb-4">
-              Curso Completo "Método de Excelência e Desempenho (MED)"
-            </p>
-            <p className="text-foreground/90 mb-6">
-              O treinamento que fundamenta toda a filosofia da MED — integrando estudo, disciplina e propósito.
-            </p>
-            <p className="font-semibold text-foreground mb-4">Você vai aprender:</p>
-            <ul className="space-y-2 mb-4">
-              {[
-                "Mentalidade de Excelência",
-                "Estratégias científicas de estudo",
-                "Constância e disciplina real",
-                "Organização e rotina estruturada",
-                "Vocação, carreira e propósito",
-                "Aplicação prática da excelência"
-              ].map((item, index) => (
-                <li key={index} className="flex items-center gap-2 text-foreground/90">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="text-foreground/90 italic">
-              Um conteúdo que muda a forma como você pensa, aprende e constrói sua trajetória.
-            </p>
-          </div>
-
-          {/* Para quem é */}
-          <div
-            className={`mb-12 transition-all duration-1000 delay-500 ${
-              sectionVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
-          >
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 text-center">
-              PARA QUEM É ESTA MENTORIA?
-            </h3>
-            <ul className="space-y-3">
-              {[
-                "Estudantes que desejam alta performance com equilíbrio",
-                "Quem busca disciplina e constância reais",
-                "Quem quer aprender a estudar com profundidade e ciência",
-                "Quem sente falta de direção, propósito e clareza",
-                "Quem quer se tornar referência — e não apenas mais um nome",
-                "Quem acredita na união entre vocação, fé e excelência"
-              ].map((item, index) => (
-                <li key={index} className="flex items-center gap-3 text-foreground/90">
-                  <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Investimento */}
-          <div
-            className={`text-center mb-8 transition-all duration-1000 delay-600 ${
-              sectionVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
-          >
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
-              INVESTIMENTO
-            </h3>
-            <p className="text-4xl sm:text-5xl font-bold text-primary mb-2">
-              R$ 1.297
-            </p>
-            <p className="text-foreground/70">
-              Possibilidade de parcelamento diretamente pela plataforma.
-            </p>
-          </div>
-
-          {/* CTA */}
-          <div
-            className={`text-center mb-12 transition-all duration-1000 delay-700 ${
-              sectionVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
-          >
-            <div className="mb-6">
-              <p className="text-lg font-semibold text-foreground mb-4">
-                GARANTA SUA VAGA
-              </p>
-              <p className="text-foreground/80 mb-6">
-                Somente alunos com real compromisso serão selecionados.
-                Se você deseja construir uma jornada sólida, íntegra e guiada por propósito, este é o momento.
-              </p>
-            </div>
-            <Button 
-              size="lg" 
-              className="text-lg px-8 py-6"
-              onClick={() => window.open('#', '_blank')}
-            >
-              Garantir Minha Vaga na Mentoria Individual
-            </Button>
-          </div>
-
-          {/* Frase final */}
-          <div
-            className={`text-center transition-all duration-1000 delay-800 ${
-              sectionVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
-          >
-            <p className="text-xl italic text-foreground/90">
-              "Os que confiam no processo voam mais alto. Sua jornada começa aqui."
-            </p>
-          </div>
+        {/* Bottom Message */}
+        <div className={`text-center mt-12 transition-all duration-1000 ${sectionVisible ? 'animate-fade-up opacity-100' : 'opacity-0'}`} style={{ animationDelay: '400ms' }}>
+          <p className="font-crimson text-xl text-muted-foreground italic">
+            "Os que confiam no processo voam mais alto. Sua jornada começa aqui."
+          </p>
         </div>
       </div>
     </section>
